@@ -1,0 +1,28 @@
+importFrom("stats",	"glm",
+			"pnorm",
+			"cov",
+			"rnorm",
+			"residuals",
+			"runif",
+			"predict",
+			"family",
+			"coef")
+importFrom("Matrix", "sparseMatrix","bdiag")
+importFrom("utils",	"data")
+importFrom("glmnet", "cv.glmnet")
+importFrom("limSolve",	"linp")
+
+useDynLib(hdtrd)
+exportPattern("^[[:alpha:]]+")
+export(
+	eigmax,
+	pvaltrans,
+	pvaltrans_cv,
+	utrans,
+	predict_utr,
+	projection,
+	pvalrd,
+	pvalclc,
+	pvalgc,
+	bandmatrix
+)

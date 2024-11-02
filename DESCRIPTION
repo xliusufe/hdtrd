@@ -1,0 +1,14 @@
+Package: hdtrd
+Type: Package
+Title: High-dimensional testing relevant difference and its application to transfer learning
+Version: 1.0.1
+Author: Xu Liu [aut,cre]
+Maintainer: Xu Liu <liu.xu@sufe.edu.cn>
+Description: Provide the p-value of the test statistic for high-dimensional relevant difference in the generalized linear regression models and its application to transfer learning. In the paper Liu(2024), we propose novel statistics to test relevant difference of two high-dimensional coefficients in the generalized linear regression models. The proposed method can serve as a means for high-dimensional transfer learning the generalized linear regression models.
+License: GPL (>= 2)
+Depends: R (>= 3.2.0), Matrix, glmnet, limSolve
+NeedsCompilation: yes
+Repository: github
+URL: https://github.com/xliusufe/hdtrd
+Encoding: UTF-8
+Packaged: 2024-06-08 07:41:52 UTC; Xu Liu
