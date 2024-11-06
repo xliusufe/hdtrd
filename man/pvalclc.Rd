@@ -12,7 +12,7 @@
 }
 
 \arguments{
-  \item{data}{A list, including \eqn{Y} (response), \eqn{\boldsymbol{X}}, \eqn{\boldsymbol{Z}}, where \eqn{\boldsymbol{X}} can be \code{NULL}.}
+  \item{data}{A list, including \eqn{Y} (response), \eqn{\boldsymbol{X}}, \eqn{\boldsymbol{Z}}, where \eqn{\boldsymbol{Z}} can be \code{NULL}.}
 
   \item{family}{Family for the generalized linear models, including `gaussian', `binomial', and `poisson'. Default is \code{family = "gaussian"}.}
 
@@ -33,9 +33,9 @@
 \details{
   The generalized linear regression models (see details in the paper Guo and Chen (2016))
   \deqn{
-  \mu_i = \boldsymbol{X}_{i}^T\boldsymbol{\alpha} +\boldsymbol{Z}_i^T\boldsymbol{\beta},
+  \mu_i = \boldsymbol{X}_{i}^T\boldsymbol{\beta} +\boldsymbol{Z}_i^T\boldsymbol{\gamma},
   }
-where \eqn{\boldsymbol{X}^T\boldsymbol{\alpha}} is a baseline mean function.
+where \eqn{\boldsymbol{X}^T\boldsymbol{\beta}} is a baseline mean function.
 
 The hypothesis test problem is
 \deqn{

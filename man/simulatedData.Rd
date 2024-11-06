@@ -56,7 +56,7 @@ where \eqn{\boldsymbol{X}^T\boldsymbol{\beta}} is a baseline mean function, and 
 }
 
 \references{
-Liu, X. (2024). High-dimensional test of relevant difference and its application to transfer learning. Manuscript.
+Liu, X. (2024). Testing relevant difference in high-dimensional linear regression with applications to detect transferability. Manuscript.
 }
 
 \examples{

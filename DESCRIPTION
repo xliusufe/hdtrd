@@ -1,6 +1,6 @@
 Package: hdtrd
 Type: Package
-Title: High-dimensional testing relevant difference and its application to transfer learning
+Title: Testing relevant difference in high-dimensional linear regression with applications to detect transferability
 Version: 1.0.1
 Author: Xu Liu [aut,cre]
 Maintainer: Xu Liu <liu.xu@sufe.edu.cn>
