@@ -1,12 +1,11 @@
 pvalrd <- function(data, family = "gaussian", delta0 = 0.1, method = 'lasso', resids = NULL, sigma2 = NULL, lammax = NULL){
 	# High-dimensional testing of relevant difference in linear regressions.
-
 	multidelta = 0
 	if(!(family %in% c('gaussian', 'binomial','poisson'))){
 		stop("family must be one of {'gaussian', 'binomial', 'poisson'} !")
 	}
 	if(is.null(data$X)){
-		stop("Z is NULL !")
+		stop("X is NULL !")
 	}
 	if(is.null(data$Y)){
 		stop("Y is NULL !")
@@ -14,7 +13,7 @@ pvalrd <- function(data, family = "gaussian", delta0 = 0.1, method = 'lasso', re
 	y 	= data$Y
 	n 	= length(y)
 	x 	= data$X
-	p 	= ifelse(is.null(ncol(z)), 1, ncol(z))
+	p 	= ifelse(is.null(ncol(x)), 1, ncol(x))
 
 	if(is.null(resids)){
 		if(is.null(data$Z)){
