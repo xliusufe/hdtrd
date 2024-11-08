@@ -35,7 +35,7 @@
   \deqn{
   \mu_i = \boldsymbol{X}_{i}^T\boldsymbol{\beta} +\boldsymbol{Z}_i^T\boldsymbol{\gamma},
   }
-where \eqn{\boldsymbol{X}^T\boldsymbol{\beta}} is a baseline mean function.
+where \eqn{\boldsymbol{Z}_i^T\boldsymbol{\gamma}} is the control mean function.
 
 The hypothesis test problem is
 \deqn{

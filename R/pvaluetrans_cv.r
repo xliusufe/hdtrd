@@ -161,9 +161,7 @@ pvaltrans_cv <- function(target, source, family = "gaussian", delta0 = 0.1, nsou
 		}
 
 		for(kk in 1:ndelta){
-			# cat("cv = ", jj, " ndelta = ", kk,"\n")
 			idtrans 	<- which(pvals[, kk]>alpha)
-			# fittrans	<- utrans(target=target, source=source, family = family, idtrans=idtrans)
 			fittrans	<- utrans(target=list(X=xtrain,Y=ytrain), source=source, family = family, idtrans=idtrans)
 			mu			<- fittrans$beta[1] + xtest%*%fittrans$beta[-1]
 			if(family == 'gaussian'){

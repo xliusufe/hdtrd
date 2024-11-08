@@ -5,7 +5,7 @@ pvalrd <- function(data, family = "gaussian", delta0 = 0.1, method = 'lasso', re
 	if(!(family %in% c('gaussian', 'binomial','poisson'))){
 		stop("family must be one of {'gaussian', 'binomial', 'poisson'} !")
 	}
-	if(is.null(data$Z)){
+	if(is.null(data$X)){
 		stop("Z is NULL !")
 	}
 	if(is.null(data$Y)){
@@ -13,11 +13,11 @@ pvalrd <- function(data, family = "gaussian", delta0 = 0.1, method = 'lasso', re
 	}
 	y 	= data$Y
 	n 	= length(y)
-	z 	= data$Z
+	x 	= data$X
 	p 	= ifelse(is.null(ncol(z)), 1, ncol(z))
 
 	if(is.null(resids)){
-		if(is.null(data$X)){
+		if(is.null(data$Z)){
 			if(family=='gaussian'){
 				resids  = y
 			}
@@ -32,11 +32,11 @@ pvalrd <- function(data, family = "gaussian", delta0 = 0.1, method = 'lasso', re
 			}
 		}
 		else if(method == "lasso"){
-			x 		= data$X
-			fitglm 	= cv.glmnet(x, y, family = family, type.measure="mse")
+			z 		= data$Z
+			fitglm 	= cv.glmnet(z, y, family = family, type.measure="mse")
 			# resids 	= y - predict(fitglm, s = "lambda.min", newx = x)
 			betahat = coef(fitglm)
-			mu 		= betahat[1] + x %*% betahat[-1]
+			mu 		= betahat[1] + z %*% betahat[-1]
 			if(family=='gaussian'){
 				resids	<- y - mu
 			}
@@ -51,12 +51,12 @@ pvalrd <- function(data, family = "gaussian", delta0 = 0.1, method = 'lasso', re
 			}
 		}
 		else if(method == "glm"){
-			x 	= data$X
-			p1 	= ifelse(is.null(ncol(x)), 1, ncol(x))
+			z 	= data$Z
+			p1 	= ifelse(is.null(ncol(z)), 1, ncol(z))
 			if(p1>n/2){
 				stop("Dimension of X is greater than n/2! Please use mathod = lasso.")
 			}
-			fitglm 	= glm(y~x, family = family)
+			fitglm 	= glm(y~z, family = family)
 			resids 	= residuals(fitglm, type = "response")
 		}
 		else{
@@ -66,7 +66,7 @@ pvalrd <- function(data, family = "gaussian", delta0 = 0.1, method = 'lasso', re
 
 	ishd = 1
 	if(is.null(lammax)){
-		lammax = norm(t(z)%*%z/n,"2")/(1+sqrt(p/n))
+		lammax = norm(t(x)%*%x/n,"2")/(1+sqrt(p/n))
 	}
 	if(ishd){
 		maxsig = ( delta0*lammax )^2
@@ -82,7 +82,7 @@ pvalrd <- function(data, family = "gaussian", delta0 = 0.1, method = 'lasso', re
 	if(multidelta == 1){
 		dims 	= c(n, p, length(delta0), ishd)
 		Tn		= .Call("RDtest_MAX_GC_CV1_",
-						as.numeric(z),
+						as.numeric(x),
 						as.numeric(resids),
 						as.numeric(sigma2),
 						as.numeric(maxsig),
@@ -92,7 +92,7 @@ pvalrd <- function(data, family = "gaussian", delta0 = 0.1, method = 'lasso', re
 	if(multidelta == 2){
 		dims 	= c(n, p, length(delta0), ncol(resids), ishd)
 		Tn		= .Call("RDtest_MAX_GC_CV2_",
-						as.numeric(z),
+						as.numeric(x),
 						as.numeric(resids),
 						as.numeric(sigma2),
 						as.numeric(maxsig),
@@ -102,7 +102,7 @@ pvalrd <- function(data, family = "gaussian", delta0 = 0.1, method = 'lasso', re
 	else{
 		dims 	= c(n, p, ishd)
 		Tn		= .Call("RDtest_MAX_GC_",
-						as.numeric(z),
+						as.numeric(x),
 						as.numeric(resids),
 						as.numeric(sigma2),
 						as.numeric(maxsig),
