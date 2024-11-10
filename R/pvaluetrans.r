@@ -52,7 +52,7 @@ pvaltrans <- function(target, source, family = "gaussian", delta0 = 0.1, nsource
 					}
 				}
 				# Xp 	= Xk - cbind(1,Xd)%*%projk
-				Xp 	= projk
+				Xp 	= as.matrix(projk)
 			}
 			else{
 				Xp = Xk

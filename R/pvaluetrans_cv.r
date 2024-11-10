@@ -47,7 +47,7 @@ pvaltrans_cv <- function(target, source, family = "gaussian", delta0 = 0.1, nsou
 					projk = proj[,,k]
 				}
 			}
-			Xp 	= projk
+			Xp 	= as.matrix(projk)
 		}
 		else{
 			Xp = Xk
@@ -144,7 +144,7 @@ pvaltrans_cv <- function(target, source, family = "gaussian", delta0 = 0.1, nsou
 						projk = proj[,,k]
 					}
 				}
-				Xp 	= projk[-cv.id,]
+				Xp 	= as.matrix(projk[-cv.id,])
 			}
 			else{
 				Xp = Xk[-cv.id,]
@@ -210,7 +210,7 @@ pvaltrans_cv <- function(target, source, family = "gaussian", delta0 = 0.1, nsou
 					projk = proj[,,k]
 				}
 			}
-			Xp 	= projk
+			Xp 	= as.matrix(projk)
 		}
 		else{
 			Xp = Xk
