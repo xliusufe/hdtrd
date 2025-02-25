@@ -30,6 +30,10 @@ Karoui, N, E. (2008) Spectrum estimation for large dimensional covariance matric
 
 Kong, W. and Valiant, G. (2017). Spectrum estimation from samples. Annals of Statistics. 45, 2218-2247.
 
+Li, S., Cai, T. T., and Li, H. (2022a). Transfer Learning in Large-Scale Gaussian Graphical Models with False Discovery Rate Control. Journal of the American Statistical Association, 118, 2171-2183.
+
+Li, S., Cai, T. T., and Li, H. (2022b). Transfer Learning for High-Dimensional Linear Regression: Prediction, Estimation and Minimax Optimality. Journal of the Royal Statistical Society Series B, 84, 149-173.
+
 Liu, S. (2024). Unified Transfer Learning Models for High-Dimensional Linear Regression. Proceedings of The 27th International Conference on Artificial Intelligence and Statistics, PMLR. 238, 1036-1044.
 
 Liu, X. (2024). Testing relevant difference in high-dimensional linear regression with applications to detect transferability. Manuscript.

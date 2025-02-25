@@ -30,7 +30,7 @@
 
   \item{ncv}{Number of folds in the cross-validation, which is used to select transferable level \eqn{\delta_0}. Default is \code{ncv = 10}.}
 
-  \item{alpha}{logical. Projection score method is applied if \code{isproj = TRUE}. Default is \code{isproj = FALSE}, which means that no projection score is applied.}
+  \item{alpha}{Significant level, which is used to select transferable level \eqn{\delta_0}. Default is \code{alpha = 0.05}.}
 
   \item{resids}{An \eqn{n}-vector, which is residual of GLM under \eqn{H_0}. Default is \code{resids = NULL}, where the canonical link function is used if \code{resids} and \code{psi} are \code{NULL}.}
 

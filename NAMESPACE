@@ -8,21 +8,23 @@ importFrom("stats",	"glm",
 			"family",
 			"coef")
 importFrom("Matrix", "sparseMatrix","bdiag")
+importFrom("glmnet", "cv.glmnet", "glmnet", "lassoshooting")
 importFrom("utils",	"data")
-importFrom("glmnet", "cv.glmnet")
 importFrom("limSolve",	"linp")
 
 useDynLib(hdtrd)
 exportPattern("^[[:alpha:]]+")
 export(
+	bandmatrix,
 	eigmax,
 	pvaltrans,
 	pvaltrans_cv,
-	utrans,
 	predict_utr,
 	projection,
 	pvalrd,
 	pvalclc,
 	pvalgc,
-	bandmatrix
+	translasso,
+	translasso0,
+	utrans
 )
