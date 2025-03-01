@@ -51,7 +51,7 @@ translasso0 <- function(target, source = NULL, idtrans = NULL, nvec = NULL, lamc
 		for(k in 1:size.idtrans){
 			ind.k	<- indset(nvec,k+1)
 			lam.k 	<- sqrt(mean(Y[ind.1]^2)/nvec[1]+mean(Y[ind.k]^2)/nvec[k]) * sqrt(2*log(p))
-			delta.hat.k	<- lassoshooting(XtX	= Sig.hat, 
+			delta.hat.k	<- glmnet(XtX	= Sig.hat, 
 										Xty		= t(X[ind.k,])%*%Y[ind.k]/nvec[k+1]-t(X[1:nvec[1],])%*%Y[1:nvec[1]]/nvec[1],
 										lambda	= lam.k)$coef
 			Y.A	<- c(Y.A, Y[ind.k]-X[ind.k,]%*%delta.hat.k)
