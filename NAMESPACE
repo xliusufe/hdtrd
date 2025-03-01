@@ -8,7 +8,7 @@ importFrom("stats",	"glm",
 			"family",
 			"coef")
 importFrom("Matrix", "sparseMatrix","bdiag")
-importFrom("glmnet", "cv.glmnet", "glmnet", "lassoshooting")
+importFrom("glmnet", "cv.glmnet")
 importFrom("utils",	"data")
 importFrom("limSolve",	"linp")
 
